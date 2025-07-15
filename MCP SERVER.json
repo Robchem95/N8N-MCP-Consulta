@@ -1,0 +1,76 @@
+{
+  "name": "MCP SERVER",
+  "nodes": [
+    {
+      "parameters": {
+        "path": "MCP"
+      },
+      "type": "@n8n/n8n-nodes-langchain.mcpTrigger",
+      "typeVersion": 2,
+      "position": [
+        -80,
+        -60
+      ],
+      "id": "1ae0bb5c-af8a-439d-b1b8-1d7a40bf6425",
+      "name": "MCP Server Trigger",
+      "webhookId": "76535546-c655-4822-86ac-6cb12a88db0f"
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "agua",
+          "mode": "list",
+          "cachedResultName": "agua"
+        },
+        "limit": 220,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgresTool",
+      "typeVersion": 2.6,
+      "position": [
+        80,
+        220
+      ],
+      "id": "151ff975-1120-49bc-bced-620a44f80fee",
+      "name": "Select rows from a table in Postgres",
+      "credentials": {
+        "postgres": {
+          "id": "AqUuIgAdTAjsXl6N",
+          "name": "Postgres account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Select rows from a table in Postgres": {
+      "ai_tool": [
+        [
+          {
+            "node": "MCP Server Trigger",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "16de856d-a7d5-416d-9074-85360b1fe499",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "4b8123005eccf77b7c22aff1e7e8d1dc432579da354e3697279acd178e9907b9"
+  },
+  "id": "QDMm4w0QUndE2uoF",
+  "tags": []
+}
